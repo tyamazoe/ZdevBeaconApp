@@ -30,6 +30,7 @@ class ViewController: UIViewController, NFCNDEFReaderSessionDelegate {
                 if var payloadString = String.init(data: payload.payload.advanced(by: 1), encoding: .utf8) {
                     payloadString = stripHeader(msg: payloadString)
                     print(payloadString)
+                    // TODO: - Make sure async 2022-06-13
                     DispatchQueue.main.async {
                         self.nfcDataLabel.text = payloadString
                     }
